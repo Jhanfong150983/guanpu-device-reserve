@@ -240,12 +240,13 @@
 }
   
   .step-label {
-    font-size: 1.5rem;
+    font-size: 1rem;
     font-weight: bold;
     color: #4d4d4d;
     flex: 1; /* 讓標籤占據剩餘空間 */
     text-align: left;
     margin-left: 1rem;
+    margin-right: 1rem;
   }
 
   .disabled-date {
