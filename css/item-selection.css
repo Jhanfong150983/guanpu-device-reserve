@@ -1,0 +1,184 @@
+/* 項目選擇容器 */
+.item-selection-container {
+  width: 90%;
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
+}
+
+.item-grid-horizontal {
+  display: flex;
+  gap: 20px; /* 控制主要類別和設備名稱之間的間距 */
+}
+
+.item {
+  flex: 1; /* 讓每個選項等寬 */
+}
+
+
+/* 項目網格布局 */
+.item-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr; /* 每行兩列 */
+  gap: 1rem; /* 項目之間的間距 */
+}
+
+/* 標籤樣式 */
+.item-label {
+  font-size: 1rem;
+  font-weight: bold;
+  color: #4d4d4d;
+  margin-bottom: 0.5rem;
+  margin-top: 0.5rem;
+  display: block;
+  text-align: left; 
+}
+
+/* 下拉選單樣式 */
+.item-select {
+  width: 100%;
+  padding: 0.5rem;
+  border: 1px solid rgba(105, 160, 70, 0.2);
+  border-radius: 0.5rem;
+  font-size: 0.8rem;
+  color: #4d4d4d;
+}
+
+/* 勾選方塊容器 */
+.checkbox-container {
+    padding: 0.5rem;
+    border: 1px solid rgba(105, 160, 70, 0.2);
+    border-radius: 0.5rem;
+    background-color: #f9f9f9;
+  }
+  
+  /* 單個勾選方塊項目 */
+  .checkbox-item {
+    display: flex;
+    align-items: center;
+    font-size: 0.8rem;
+  }
+  
+  .checkbox-item input[type="checkbox"] {
+    margin-right: 0.5rem;
+  }
+  
+
+  .application-rules-container {
+    max-height: 100px; /* 設置最大高度 */
+    overflow-y: auto; /* 啟用垂直滾動條 */
+    padding: 0.5rem; /* 添加內邊距 */
+    border: 1px solid #ccc; /* 添加邊框 */
+    background-color: #f9f9f9; /* 背景顏色 */
+    border-radius: 5px; /* 圓角邊框 */
+    font-size: 0.9rem; /* 調整字體大小 */
+    line-height: 1.5; /* 行距 */
+  }
+  
+  .application-rules-container p {
+    margin: 0 0 0.5rem; /* 每段之間的間距 */
+    color: #4d4d4d; /* 文字顏色 */
+  }
+
+/* 隱藏模態視窗 */
+.hidden {
+  display: none !important; /* 確保隱藏樣式優先應用 */
+}
+
+/* 模態視窗背景 */
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(105, 160, 70, 0.2); /* 使用與其他元素一致的綠色半透明背景 */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+/* 模態視窗內容 */
+.modal-content {
+  background-color: #f9f9f9; /* 與其他容器一致的背景顏色 */
+  padding: 1.5rem;
+  border-radius: 8px;
+  text-align: center;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  width: 300px;
+  border: 1px solid rgba(105, 160, 70, 0.2); /* 與其他元素一致的邊框顏色 */
+}
+
+/* 模態視窗按鈕 */
+.modal-button {
+  margin: 0.5rem;
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 1rem;
+}
+
+/* 確認按鈕 */
+#confirm-upload {
+  background-color: rgba(105, 160, 70, 0.8); /* 與其他按鈕一致的綠色 */
+  color: white;
+  transition: background-color 0.3s ease;
+}
+
+#confirm-upload:hover {
+  background-color: rgba(105, 160, 70, 1); /* 懸停時加深顏色 */
+}
+
+/* 取消按鈕 */
+#cancel-upload {
+  background-color: #f44336; /* 紅色 */
+  color: white;
+  transition: background-color 0.3s ease;
+}
+
+#cancel-upload:hover {
+  background-color: #d32f2f; /* 懸停時加深顏色 */
+}
+
+/* 載入中覆蓋層 */
+.loading-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(255, 255, 255, 0.8); /* 半透明白色背景 */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  z-index: 2000;
+}
+
+/* 載入動畫 */
+.loading-spinner {
+  width: 50px;
+  height: 50px;
+  border: 5px solid #ccc;
+  border-top: 5px solid #69a046; /* 綠色 */
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+/* 載入文字 */
+.loading-overlay p {
+  margin-top: 1rem;
+  font-size: 1.2rem;
+  color: #4d4d4d;
+}
+
+/* 載入動畫的旋轉效果 */
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}

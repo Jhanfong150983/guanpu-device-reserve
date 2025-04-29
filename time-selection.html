@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>新竹市關埔國小 資訊設備借用系統</title>
+  <link rel="stylesheet" href="css/main.css" />
+  <link rel="stylesheet" href="css/time-selection.css" />
+</head>
+<body class="body-bg">
+
+  <div class="calendar-wrapper">
+    <h1 class="calendar-title">關埔國小 資訊設備借用系統</h1>
+
+    <div class="time-selection-container">
+      <div class="time-grid">
+        <!-- 時段按鈕 -->
+        <button class="time-slot" data-time="08:10-08:35">晨光段<br>08:10 - 08:35</button>
+        <button class="time-slot" data-time="12:10-13:20">午休段<br>12:10 - 13:20</button>
+        <button class="time-slot" data-time="08:40-09:20">第一節<br>08:40 - 09:20</button>
+        <button class="time-slot" data-time="13:30-14:10">第五節<br>13:30 - 14:10</button>
+        <button class="time-slot" data-time="09:30-10:10">第二節<br>09:30 - 10:10</button>
+        <button class="time-slot" data-time="14:20-15:00">第六節<br>14:20 - 15:00</button>
+        <button class="time-slot" data-time="10:30-11:10">第三節<br>10:30 - 11:10</button>
+        <button class="time-slot" data-time="15:15-15:55">第七節<br>15:15 - 15:55</button>
+        <button class="time-slot" data-time="11:20-12:00">第四節<br>11:20 - 12:00</button>
+        <button class="time-slot" data-time="16:10-21:00">放學後<br>16:10 - 21:00</button>
+      </div>
+    </div>
+
+    <!-- 步驟指示器 -->
+    <div class="step-indicator">
+      <div class="step-number">2</div>
+      <div class="step-label">選擇時段</div>
+      <div class="step-buttons">
+        <a href="index.html" class="prev-step-button">上一步</a>
+        <a href="#" class="next-step-button">下一步</a>
+      </div>
+    </div>
+  </div>
+
+  <script src="js/time-selection.js" defer></script>
+</body>
+</html>

@@ -1,0 +1,46 @@
+/* 調整 time-selection.html 中的 .calendar-title 樣式 */
+.time-selection-container{
+    font-size: 1.125rem; /* 調整字體大小，讓標題更緊湊 */
+    font-weight: bold; /* 保持字體加粗 */
+    text-align: center; /* 保持居中對齊 */
+    color: #2c6e49; /* 深綠色，與整體風格一致 */
+    margin: 0; /* 移除外邊距 */
+}
+
+/* 時段按鈕網格布局 */
+.time-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* 每行兩列 */
+    gap: 0.5rem; /* 按鈕之間的間距 */
+    padding: 1rem; /* 增加內邊距 */
+}
+
+/* 時段按鈕樣式 */
+.time-slot {
+    padding: 0.5rem 1rem; /* 調整內邊距 */
+    background-color: #ffffff;
+    color: #4d4d4d;
+    font-size: 0.9rem;
+    line-height: 1.2; /* 減少行間距 */
+    font-weight: bold;
+    text-align: center;
+    border: 1px solid rgba(105, 160, 70, 0.2);
+    border-radius: 0.5rem;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* 添加輕微陰影 */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.time-slot:hover {
+    background-color: rgba(105, 160, 70, 0.2); /* 滑鼠懸停時背景色 */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* 滑鼠懸停時加強陰影 */
+}
+
+.time-slot.selected {
+    background-color: #4d9355; /* 深綠色 */
+    color: white;
+    border-color: #4d9355;
+}

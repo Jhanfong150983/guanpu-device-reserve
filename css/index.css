@@ -1,0 +1,71 @@
+img {
+  max-width: 100%; /* 圖片寬度不超過父容器 */
+  height: auto; /* 自動調整高度，保持比例 */
+  display: block;
+  margin: 0 auto; /* 讓圖片居中 */
+}
+
+/* Logo 動畫 */
+@keyframes dropIn {
+  0% {
+    transform: translateY(-100%); /* 從畫面外的上方開始 */
+    opacity: 0; /* 初始透明 */
+  }
+  100% {
+    transform: translateY(0); /* 回到原始位置 */
+    opacity: 1; /* 完全顯示 */
+  }
+}
+
+.logo {
+  max-width: 100px; /* 限制圖片的最大寬度 */
+  height: auto; /* 自動調整高度，保持比例 */
+  display: block;
+  margin: 0 auto; /* 讓圖片居中 */
+  animation: dropIn 1s ease-out; /* 掉落動畫，持續 1 秒 */
+  opacity: 0; /* 頁面加載時隱藏 */
+}
+
+label {
+  display: block; /* 讓標籤獨占一行 */
+  margin-top: 10px;
+  margin-bottom: 10px; /* 標籤與輸入框之間的距離 */
+  font-size: 12px; /* 調整字體大小 */
+}
+
+
+.login-input {
+  width: 90%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 16px;
+}
+
+.query-button{
+  width: 226px;
+  height: 6px;
+  margin-top: 120px;
+}
+
+.login-button{
+  height: 30px;
+  width: 250px;
+}
+
+.login-button:hover {
+  background-color: #45a049;
+}
+
+.login-message {
+  font-size: 16px;
+}
+
+.login-message.success {
+  color: #4caf50;
+}
+
+.login-message.error {
+  color: #d9534f;
+}
+

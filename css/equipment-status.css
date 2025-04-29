@@ -1,0 +1,104 @@
+.date-selector {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.date-button {
+  background-color: #ffffff;
+  color: #000000;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: bold;
+  outline: none; /* 移除按下後的外框 */
+}
+
+.date-button:hover {
+  outline: none; /* 移除按下後的聚焦樣式 */
+  background-color: transparent; /* 確保按下後不留下底色 */
+}
+
+.date-label {
+  font-size: 20px;
+  font-weight: bold;
+  margin: 0 15px;
+}
+
+.reservation-container {
+  width: 100%;
+  display: flex;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scroll-padding-left: 0; /* 確保第一張卡片能正確對齊 */
+  gap: 20px;
+  padding: 10px;
+}
+
+.reservation-card {
+  flex: 0 0 min(100%, 300px); /* 卡片寬度不超過 600px，且適應視窗寬度 */
+  height: 250px;
+  background-color: #e3f2fd;
+  border-radius: 8px;
+  padding: 20px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  scroll-snap-align: start; /* 將卡片左側對齊容器左側 */
+  margin: 0 auto;
+  overflow-y: auto; /* 當內容超出時顯示垂直滾動條 */
+}
+
+.reservation-card:nth-child(odd) {
+  background-color: #fce4ec;
+}
+
+.reservation-card:nth-child(even) {
+  background-color: #e8f5e9;
+}
+
+.reservation-card .card-header {
+  font-size: 18px;
+  font-weight: bold;
+  margin-bottom: 15px;
+}
+
+.reservation-card .reservation-item {
+  margin-bottom: 10px;
+  font-size: 14px;
+  color: #333333;
+}
+
+.reservation-card .reservation-item span {
+  font-weight: bold;
+}
+
+.back-to-index-container {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.back-to-index-container {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.back-to-index {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px; /* 圖標和文字之間的間距 */
+  color: #007bff;
+  text-decoration: none;
+  font-size: 14px; /* 調整文字大小 */
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.back-to-index:hover {
+  color: #0056b3; /* 懸停時改變文字和圖標顏色 */
+}
+
+.back-to-index i {
+  font-size: 18px; /* 調整圖標大小 */
+}

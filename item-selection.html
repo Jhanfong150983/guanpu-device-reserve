@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>新竹市關埔國小 資訊設備借用系統</title>
+  <link rel="stylesheet" href="css/main.css" />
+  <link rel="stylesheet" href="css/item-selection.css" />
+</head>
+<body class="body-bg">
+
+  <div id="loading-overlay" class="loading-overlay">
+    <div class="loading-spinner"></div>
+    <p>載入中，請稍候...</p>
+  </div>
+
+  <div class="calendar-wrapper">
+    <h1 class="calendar-title">關埔國小 資訊設備借用系統</h1>
+
+    <div class="item-selection-container">
+      <!-- 使用地點選擇 -->
+      <div class="item">
+        <label for="location" class="item-label">使用地點</label>
+        <select id="location" class="item-select">
+          <!-- 使用地點選項將通過 JavaScript 動態加載 -->
+        </select>
+      </div>
+    
+      <!-- 水平排列的主要類別和設備名稱 -->
+      <div class="item-grid-horizontal">
+        <!-- 主要類別選擇 -->
+        <div class="item">
+          <label for="category" class="item-label">主要類別</label>
+          <select id="category" class="item-select">
+            <!-- 主要類別選項將通過 JavaScript 動態加載 -->
+          </select>
+        </div>
+    
+        <!-- 子類別選擇 -->
+        <div class="item">
+          <label for="subcategory" class="item-label">設備名稱</label>
+          <select id="subcategory" class="item-select">
+            <!-- 子類別選項將通過 JavaScript 動態加載 -->
+          </select>
+        </div>
+      </div>
+      
+      <div class="item-grid-horizontal">
+        <div class="item">
+          <strong class="item-label">選借設備</strong>
+          <div id="borrow-options" class="checkbox-container">
+            <!-- 選借設備的勾選方塊將通過 JavaScript 動態加載 -->
+          </div>
+        </div>
+        <div class="item">
+          <strong class="item-label">內含物品</strong>
+          <span id="included-items">-</span>
+        </div>
+      </div>
+      <strong class="item-label">借用規範</strong>
+        <div id="application-rules" class="application-rules-container">
+           <!-- 借用規範內容將通過 JavaScript 動態加載 -->
+        </div>
+    </div>
+      
+    <!-- 步驟指示器 -->
+    <div class="step-indicator">
+      <div class="step-number">3</div>
+      <div class="step-label">選擇設備</div>
+      <div class="step-buttons">
+        <a href="time-selection.html" class="prev-step-button">上一步</a>
+        <a href="quantity-selection.html" class="next-step-button">下一步</a>
+      </div>
+    </div>
+  </div>
+  
+<!-- 確認與上傳模態視窗 -->
+<div id="upload-modal" class="modal hidden">
+  <div class="modal-content">
+    <p id="modal-message">確認是否送出資料？</p>
+    <div class="modal-buttons">
+      <button id="confirm-upload" class="modal-button">確認</button>
+      <button id="cancel-upload" class="modal-button">取消</button>
+    </div>
+  </div>
+</div>
+
+  <script src="js/item-selection.js" defer></script>
+</body>
+</html>

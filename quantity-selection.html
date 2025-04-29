@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>新竹市關埔國小 資訊設備借用系統</title>
+  <link href="https://cdn.tailwindcss.com" rel="stylesheet" />
+  <link rel="stylesheet" href="css/main.css" />
+  <link rel="stylesheet" href="css/quantity-selection.css" />
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+</head>
+<body class="body-bg">
+
+    <div id="loading-overlay" class="loading-overlay">
+        <div class="loading-spinner"></div>
+        <p>計算預約時間設備剩餘數量，請稍候...</p>
+        <div class="note-container">
+          <span class="note-icon">⚠️</span>
+          <p class="note">預約時間越多，計算時間越長</p>
+        </div>
+      </div>
+
+  <div class="calendar-wrapper">
+    <h1 class="calendar-title">關埔國小 資訊設備借用系統</h1>
+    <div class="scrollable-container">
+      <!-- 動態生成的內容將插入到這裡 -->
+    </div>
+
+    <!-- 步驟指示器 -->
+    <div class="step-indicator">
+      <div class="step-number">4</div>
+      <div class="step-label">預約數量</div>
+      <div class="step-buttons">
+        <a href="item-selection.html" class="prev-step-button">上一步</a>
+        <a href="#" id="submit-button" class="next-step-button"><span class="material-icons check-icon">check</span>送出</a>
+      </div>
+    </div>
+  </div>
+
+  <script src="js/quantity-selection.js"></script>
+</body>
+</html>

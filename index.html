@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>登入系統</title>
+  <link rel="stylesheet" href="css/main.css" />
+  <link rel="stylesheet" href="css/index.css" />
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+</head>
+<body class="body-bg">
+  <div class="calendar-wrapper">
+    <img src="css/images/logo.png" alt="關埔國小logo" class="logo" />
+    <h1 class="calendar-title">關埔國小 資訊設備借用系統</h1>
+    <form id="login-form">
+      <label for="username">預約人姓名：</label>
+      <input type="text" id="username" class="login-input" required />
+    </form>
+    <div id="login-message" class="login-message"></div>
+    <button type="" class="button login-button">登入</button>
+  
+    <!-- 預約查詢按鈕 -->
+    <a href="equipment-status.html" class="button query-button">
+      <span class="material-icons">search</span>
+      預約查詢
+    </a>
+  </div>
+
+  <script src="js/index.js"></script>
+</body>
+</html>

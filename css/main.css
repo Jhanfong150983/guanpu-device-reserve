@@ -1,0 +1,283 @@
+/* 基於校徽配色的日曆樣式 */
+
+/* 背景與排版 */
+.body-bg {
+    background-color: #f7f9f4; /* 淺綠色背景 */
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  /* 月曆外框 */
+  .calendar-wrapper {
+    background-color: #ffffff;
+    padding: 1.5rem;
+    border-radius: 1rem;
+    box-shadow: 0 8px 20px rgba(105, 160, 70, 0.15);
+    border: 1px solid rgba(105, 160, 70, 0.2);
+    width: 90%;
+    max-width: 24rem;
+    height: 500px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+  }
+  
+  /* 月曆容器 */
+  .calendar-container {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 1rem;
+  }
+  
+  /* 標題 */
+  .calendar-title {
+    text-align: center;
+    font-size: 1.25rem;
+    font-weight: bold;
+    margin-bottom: 1rem;
+    color: #2c6e49; /* 深綠色 */
+  }
+  
+  /* 年月列與按鈕 */
+  .calendar-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+    border-bottom: 2px solid #f1c550; /* 黃色下劃線 */
+    padding-bottom: 0.75rem;
+  }
+  
+  .month-title {
+    font-size: 1.125rem;
+    font-weight: 600;
+    flex: 1;
+    text-align: center;
+    color: #2c6e49; /* 深綠色 */
+  }
+  
+  .month-button {
+    color: #8ca8a0; /* 淺藍灰色 */
+    font-size: 1.25rem;
+    padding: 0.25rem 0.5rem;
+    cursor: pointer;
+    border-radius: 0.375rem;
+    transition: all 0.2s ease;
+  }
+  
+  .month-button:hover {
+    color: #e98a15; /* 橙色 */
+    background-color: rgba(241, 197, 80, 0.15); /* 淺黃色 */
+  }
+  
+  /* 格子區 */
+  .calendar-grid {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 0.5rem;           /* 保持間距 */
+    text-align: center;
+    color: #4d4d4d;
+    padding: 0.5rem 0;     /* 給整個網格一些空間 */
+    flex: 1; /* 讓 .calendar-grid 自動填滿剩餘空間 */
+    overflow: hidden; /* 防止內容溢出 */
+    margin-bottom: 3rem;
+  }
+  
+  /* 星期標題 */
+  .weekday-header {
+    padding: 0.5rem 0;
+    font-weight: 600;
+    color: #8ca8a0; /* 淺藍灰色 */
+    font-size: 0.875rem;
+    cursor: pointer;
+    transition: all 0.2s ease;
+  }
+  
+  .weekday-header:hover {
+    color: #2c6e49; /* 深綠色 */
+    background-color: rgba(105, 160, 70, 0.1); /* 非常淺的綠色 */
+    border-radius: 0.375rem;
+  }
+  
+  /* 每個日期格 */
+  .date-cell {
+    width: 2rem;           /* 固定寬度 */
+    height: 2rem;          /* 固定高度 - 確保與寬度相同 */
+    border-radius: 50%;    /* 圓形 */
+    cursor: pointer;
+    font-size: 0.875rem;
+    transition: all 0.2s ease;
+    position: relative;
+    display: flex;         /* 使用 flex 布局居中內容 */
+    align-items: center;   /* 垂直居中 */
+    justify-content: center; /* 水平居中 */
+    margin: 0 auto;        /* 在其容器中居中 */
+    padding: 0;            /* 移除內邊距，使用固定尺寸 */
+  }
+  
+  
+  /* 選中的日期 - 校徽配色版本 */
+  .selected-date {
+    background-color: #4d9355; /* 較深的綠色，與校徽綠色接近 */
+    color: white;
+    font-weight: 500;
+    box-shadow: 0 2px 5px rgba(77, 147, 85, 0.4);
+    /* 保持寬高相同，確保是圓形 */
+    width: 2rem;
+    height: 2rem;
+  }
+  
+  .selected-date:hover {
+    background-color: #2c6e49; /* 更深的綠色 */
+    box-shadow: 0 3px 7px rgba(77, 147, 85, 0.5);
+  }
+  
+  /* 星期日 */
+  .calendar-grid div:nth-child(7n+1) {
+    color: #e98a15; /* 橙色 */
+  }
+  
+  /* 選擇多個日期的連續效果 */
+  .selected-date-sequence {
+    position: relative;
+  }
+  
+  .selected-date-sequence::before {
+    content: '';
+    position: absolute;
+    background-color: rgba(77, 147, 85, 0.3); /* 半透明綠色 */
+    height: 100%;
+    width: 100%;
+    left: 0;
+    top: 0;
+    z-index: -1;
+  }
+  
+  /* 今天的日期 */
+  .today {
+    border: 2px solid #f1c550; /* 黃色邊框 */
+  }
+  
+  /* 當月非工作日 */
+  .weekend {
+    color: #8ca8a0; /* 淺藍灰色 */
+  }
+  
+  /* 不可選擇的日期（前一個月或後一個月的溢出日期） */
+  .disabled-date {
+    color: rgba(0, 0, 0, 0.3); /* 半透明灰色文字 */
+    pointer-events: none; /* 禁用點擊 */
+    cursor: not-allowed;
+    text-decoration: line-through; /* 添加刪除線 */
+    background-color: #f5f5f5; /* 淺灰色背景 */
+  }
+  
+  .disabled-date:hover {
+    background-color: transparent; /* 禁用日期不變色 */
+  }
+  /* 調整 .step-indicator 的布局 */
+.step-indicator {
+  display: flex;
+  align-items: center;
+  justify-content: space-between; /* 讓內容左右分佈 */
+  padding: 1rem;
+  position: absolute;
+  bottom: 1rem;
+  left: 0;
+  right: 0;
+  border-radius: 1rem;
+  background-color: #ffffff;
+  border: 1px solid rgba(105, 160, 70, 0.2);
+  box-shadow: 0 8px 20px rgba(105, 160, 70, 0.15);
+  margin: 0 auto;
+  width: calc(100% - 2rem);
+  gap: 1rem;
+}
+
+.step-buttons {
+  display: flex;
+    gap: 0.5rem; /* 按鈕之間的間距 */
+}
+
+/* 調整 .next-step-button 的位置 */
+.next-step-button,
+.prev-step-button {
+  padding: 0.5rem 1rem;
+    height: 19px; /* 固定高度 */
+    width: 60px;
+    background-color: #2c6e49;
+    color: white;
+    font-size: 0.875rem;
+    font-weight: bold;
+    text-align: center;
+    border-radius: 0.5rem;
+    text-decoration: none;
+    transition: background-color 0.2s ease;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.next-step-button:hover,
+.prev-step-button:hover {
+  background-color: #4d9355; /* 較亮的綠色 */
+  }
+
+.step-number {
+  background-color: #2c6e49; /* 深綠色 */
+  color: white;
+  width: 2rem;
+  height: 2rem;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+}
+  
+  .step-label {
+    font-size: 1rem;
+    font-weight: bold;
+    color: #4d4d4d;
+    flex: 1; /* 讓標籤占據剩餘空間 */
+    text-align: left;
+    margin-left: 1rem;
+  }
+
+  .disabled-date {
+    color: rgba(0, 0, 0, 0.3); /* 半透明灰色文字 */
+    pointer-events: none; /* 禁用點擊 */
+    cursor: not-allowed;
+    text-decoration: line-through;
+  }
+
+/* 通用按鈕樣式 */
+.button {
+  width: 250px; /* 固定按鈕寬度 */
+  margin: 10px;
+  padding: 12px;
+  background-color: #4caf50; /* 綠色背景 */
+  color: white;
+  text-decoration: none;
+  border: none;
+  border-radius: 16px; /* 圓角 */
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px; /* 圖標與文字的間距 */
+  transition: background-color 0.3s ease, transform 0.2s ease; /* 添加縮放效果 */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* 添加陰影 */
+  text-align: center;
+}
+
+.button:hover {
+  background-color: #45a049; /* 懸停時的深綠色 */
+  transform: scale(1.05); /* 懸停時稍微放大按鈕 */
+}
