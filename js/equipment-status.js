@@ -76,8 +76,9 @@ document.addEventListener("DOMContentLoaded", () => {
       if (result.success) {
         // 將資料轉換為以日期和時段為鍵的結構
         reservations = result.data.reduce((acc, item) => {
+          // 確保日期處理為本地時間
           const date = new Date(item["預約日期"]);
-          const localDate = new Date(date.getTime() - date.getTimezoneOffset() * 60000).toISOString().split("T")[0];
+          const localDate = date.toISOString().split("T")[0]; // 保留 YYYY-MM-DD 格式
           const time = item["預約時段"];
           if (!acc[localDate]) acc[localDate] = {};
           if (!acc[localDate][time]) acc[localDate][time] = [];
