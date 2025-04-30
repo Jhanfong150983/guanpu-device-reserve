@@ -6,6 +6,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // 初始化已選擇的時段
   timeSlots.forEach((slot) => {
+    slot.classList.remove("selected"); // 移除選中的樣式
+
     if (selectedTimeSlots.has(slot.dataset.time)) {
       slot.classList.add("selected"); // 添加選中的樣式
     }
