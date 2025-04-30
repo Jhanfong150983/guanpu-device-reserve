@@ -135,7 +135,7 @@ const fetchPromise = fetch(requestUrl)
 
 document.addEventListener("DOMContentLoaded", () => {
   const submitButton = document.getElementById("submit-button"); // 送出按鈕
-  const API_URL = "https://script.google.com/macros/s/AKfycbz4uptaRK7e_1s7IKAUEbGVipsuJ05qk6RFUihJl88fEGSWLxSEGBiSNzpUmK-cwNZE/exec"; // 替換為你的 Google Apps Script URL
+  const API_URL = "https://script.google.com/macros/s/AKfycbyAFmx-LtuC13O9A6LKGADd_hOcOXO7eORGX1m71er307cewfa3ra4UhpvmGYCIACn-/exec"; // 替換為你的 Google Apps Script URL
 
   // 當送出按鈕被點擊時
   submitButton.addEventListener("click", () => {
@@ -184,39 +184,38 @@ document.addEventListener("DOMContentLoaded", () => {
       return;
     }
 
+    // **在送出資料前輸出所有變數**
+    console.log("即將上傳的資料：", reservations);
+
+    // 將資料序列化為查詢參數
+    const queryParams = reservations
+      .map((reservation, index) => {
+        return Object.keys(reservation)
+          .map((key) => `${encodeURIComponent(`${key}[${index}]`)}=${encodeURIComponent(reservation[key])}`)
+          .join("&");
+      })
+      .join("&");
+
+    const requestUrl = `${API_URL}?action=addReservation&${queryParams}`;
+
+    console.log("發送的 URL:", requestUrl); // 將 URL 輸出到 console
+
     // 發送 GET 請求到後端
-    reservations.forEach((reservation) => {
-      const requestUrl = `${API_URL}?action=addReservation&查閱值=${encodeURIComponent(
-        reservation.lookupValue
-      )}&預約日期=${encodeURIComponent(reservation.date
-      )}&預約時段=${encodeURIComponent(reservation.timeSlot
-      )}&項目類別=${encodeURIComponent(reservation.category
-      )}&設備名稱=${encodeURIComponent(reservation.subcategory
-      )}&預約數量=${encodeURIComponent(reservation.quantity
-      )}&選借設備1=${encodeURIComponent(reservation.equipment1
-      )}&選借設備2=${encodeURIComponent(reservation.equipment2
-      )}&預約教師=${encodeURIComponent(reservation.teacher
-      )}&預約地點=${encodeURIComponent(reservation.location)}`;
-
-      console.log("發送的 URL:", requestUrl); // 將 URL 輸出到 console
-
-      // 發送請求
-      fetch(requestUrl)
-        .then((response) => response.json())
-        .then((data) => {
-          if (data.success) {
-            console.log("預約成功：", reservation);
-          } else {
-            console.error("預約失敗：", data.message);
-          }
-        })
-        .catch((error) => {
-          console.error("請求失敗：", error);
-        });
-    });
-
-    // 提示用戶預約完成
-    alert("預約資料已送出！");
-    window.location.href = "index.html"; // 返回首頁
+    fetch(requestUrl)
+      .then((response) => response.json())
+      .then((data) => {
+        if (data.success) {
+          console.log("預約成功：", data.message);
+          alert("預約資料已送出！");
+          window.location.href = "index.html"; // 返回首頁
+        } else {
+          console.error("預約失敗：", data.message);
+          alert("預約失敗，請稍後再試！");
+        }
+      })
+      .catch((error) => {
+        console.error("請求失敗：", error);
+        alert("發生錯誤，請稍後再試！");
+      });
   });
-});
+}); 
